@@ -32,6 +32,17 @@ namespace CloudEase.API.Controllers
             return Ok(new { fileUrl = url });
 
         }
+        [HttpGet]
+        public async Task<IActionResult> List()
+        {
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            if (userId == null) {
+                return BadRequest("Okunamadı.");
+            }
+            var files = await _fileService.ListAsync(userId);
+            return Ok(files);
         }
+
+    }
 
 }

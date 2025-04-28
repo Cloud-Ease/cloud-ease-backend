@@ -5,7 +5,6 @@ using CloudEase.API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 
-
 namespace CloudEase.API.Services
 {
     public class FileService : IFileService
@@ -18,6 +17,14 @@ namespace CloudEase.API.Services
         {
             _db = db;
             _storage = StorageClient.Create();
+        }
+
+        public async Task<IEnumerable<UploadedFile>> ListAsync(string userId)
+        {
+            return await _db.Files
+                .where(f => f.UserId == userId)
+                .OrderByDescending(f => f.UploadedAt)
+                .ToListAsync();
         }
 
         public async Task<string> UploadAsync(IFormFile file, string userID)
