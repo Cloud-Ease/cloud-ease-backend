@@ -1,5 +1,7 @@
 ﻿using CloudEase.API.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Http;
+using CloudEase.API.DTO;
 
 namespace CloudEase.API.Controllers
 {
@@ -12,26 +14,27 @@ namespace CloudEase.API.Controllers
         {
             _fileService = fileService;
         }
+
         [HttpPost("upload")]
-        public async Task<IActionResult> Upload([FromForm] IFormFile file)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Upload([FromForm] FileUploadDto dto)
         {
             var userId = HttpContext.Items["UserId"]?.ToString();
             if (userId == null)
             {
                 return NotFound("Kullanıcı bulunamadı.");
             }
-
-            if (file == null || file.Length == 0)
+          
+            if (dto.File == null || dto.File.Length == 0)
             {
-
                 return BadRequest("Dosya bulunamadı.");
             }
 
-            var url = await _fileService.UploadAsync(file, userId);
+            var url = await _fileService.UploadAsync(dto.File, userId);
 
             return Ok(new { fileUrl = url });
-
         }
+
         [HttpGet]
         public async Task<IActionResult> List()
         {

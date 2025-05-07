@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "ContainingType": "CloudEase.API.Controllers.FileController",
+    "Method": "List",
+    "RelativePath": "api/File",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CloudEase.API.Controllers.FileController",
+    "Method": "Upload",
+    "RelativePath": "api/File/upload",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "File",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
