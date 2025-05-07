@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CloudEase.API")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+968589d96711af79349d5577b16d407c768b95fb")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+93c5e7391ddecaaead7f2288ee8c838661df29b3")]
 [assembly: System.Reflection.AssemblyProductAttribute("CloudEase.API")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CloudEase.API")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "cloud-ease-457818",
+  "private_key_id": "939a6c1de29441cdfec7d5ecfbc18886564e4989",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQDsUjXhXR8JRZRE\nrnwaTr7e2Pu6SkAUnHJpAXXqO2lQRp2SGKxMi7X8yxQX03nM0v9hc3E6Hgk8vfvh\n6fI4UmDbzCaBDCHjRq4cQ7+q7Cftc6GAzs/kDmXtyUZYv70J0cVbtLEDNcs9HVOL\n/IJu0QMn7ryhAc5+fCQgNCXNUMLbleu7rQCyt1ocS2fVnbHwTBzTXZZzhEMzbQPC\nnM6vOwO57nhwDv5SM2XSKjzvsFzsQWozQ9PnanCY1RYYNY433FHAPoVtAJRfZiQz\nwsvUhZ0ewMIr4Vg3qfuQjfPOpzH45TFnO/D6AW52o9kCsr8T/G8Vwt+Clukj89vK\ndF32KoGjAgMBAAECggEATETQDNa/8H8bNftWJCtr4III4/uYqM5BAnCtPJZGC9lu\nezspSF8Csf5ckr/2nEswjqPyU/5jns3139hgCxtTFTzS5G0k9rPV91tKHYCv9iuO\nYQLeB006Sj7eTEA9Y1DnMAyl4FJZMHUphJFPCzK7oQSkrhXmLd4kzpvl41iAOtuN\n/UjaBp/JAANf3bFXsdJ8bC0h/KLLvT1COrLjBxh+aS7m7U5WqLDEFQdqTAUAlgyc\nMatGfYrvDBSwV5n0D0Uw1EcRk3xNLnuxlQL9raqFhtvmBesN7zKSltjdbAbusEnZ\n0oxnchWa7GzQX+nqyw9iCMV9Kc2Ma4xRXzX+De+NmQKBgQD5A12Q11H1udg465Ox\nccjDCpBF78CQ0rI14AsNwcXJDWcrR7mWib9OG/vff4qs8tNYpGlTTkRMci3xHdMR\nbDGFgzvTZKk52KT4wIkgNMPTM6uNtPyStFynu/cowsVvCCCswCX8HyByi1SyQwWn\n18BVSTspEW8tu6P+D6cjvWXErQKBgQDy8638PTfpc8ol4lzq/xkRQKTEF+OY0KBH\nqIgrxuoLp+zok0z4P9lN7OtCcS86zNzZNo2ei1unz+YKeuhbD4ED+BIOdbvQ9hJM\nYAKafV5hfDKwu5RrJUCMfmH+ofK+/fpjp2K3csOueAbroG8A7c1jsElVEPXjKobs\n+UBEeWfZjwKBgBcpiPqADM+eic5Bm2tV+iaqROE8e9z8vDbmsCCHda5N4NrVwR2P\nkovhbnxLkMqli6MjJ+jnztKNjFhxPcDRH4obuuTe6B7JWA8LWbX1MoHivIJh41yC\nClxPz52rAFJjnyZyeRYKjyoYa7hpI42JNAq61RXs2TqXyZlIO3PHmj/BAoGAO0Ag\ni2amryGVCD43aPxDschxJn2o/QjMPg2lAAAn7iXLCkF6QQTZSz7fdTnDSfTSW4sJ\naMQV20xBjwbAigyy6zPhu3MNFf4dIlE78U9n6CBxAFcO8D6Kinj8DyyR1fB80zbs\nRU8Q2AjfrzFWQQS91XUVvVBAl2E0vLBg8xIkuJMCgYB4Cu0yE9jOxWrcQ2lxhXod\nanh8Yi5Jdr1M/3cilmIV3gEauBvThHtEn/0R+wc+/QyD5Ul+CVGmUb6Oyc3SuV7T\n+Sh6iB7u6RALkSk59FoGgnQmRY6/EWJwwMEP1dNcG05yy42RxLuU/nD8Y/a9BVV/\n5Evb37fNCVLtD4J8oBwdzQ==\n-----END PRIVATE KEY-----\n",
+  "client_email": "cloud-ease@cloud-ease-457818.iam.gserviceaccount.com",
+  "client_id": "109532007971915944515",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/cloud-ease%40cloud-ease-457818.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

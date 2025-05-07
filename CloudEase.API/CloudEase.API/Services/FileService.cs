@@ -4,6 +4,8 @@ using Google.Cloud.Storage.V1;
 using CloudEase.API.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using Google.Apis.Auth.OAuth2;
 
 namespace CloudEase.API.Services
 {
@@ -16,13 +18,17 @@ namespace CloudEase.API.Services
         public FileService (AppDbContext db)
         {
             _db = db;
-            _storage = StorageClient.Create();
+
+            var credentialPath = Path.Combine(Directory.GetCurrentDirectory(), "google-cloud-key.json");
+            var credential = GoogleCredential.FromFile(credentialPath);
+
+            _storage = StorageClient.Create(credential);
         }
 
         public async Task<IEnumerable<UploadedFile>> ListAsync(string userId)
         {
             return await _db.Files
-                .where(f => f.UserId == userId)
+                .Where(f => f.UserId == userId)
                 .OrderByDescending(f => f.UploadedAt)
                 .ToListAsync();
         }
@@ -41,7 +47,7 @@ namespace CloudEase.API.Services
                 ContentType = file.ContentType,
                 Url = url,
                 UserId = userID,
-                UploadedAt = DateTime.Now
+                UploadedAt = DateTime.UtcNow
 
             };
             _db.Files.Add(uploadedFile);
