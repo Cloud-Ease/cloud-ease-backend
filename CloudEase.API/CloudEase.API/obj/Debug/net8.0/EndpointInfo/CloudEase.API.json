@@ -1,8 +1,8 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "CloudEase.API",
-    "version": "1.0"
+    "title": "CloudEase API",
+    "version": "v1"
   },
   "paths": {
     "/api/File/upload": {
@@ -50,5 +50,19 @@
       }
     }
   },
-  "components": { }
+  "components": {
+    "securitySchemes": {
+      "Bearer": {
+        "type": "http",
+        "description": "Firebase'den alınan JWT token'ı buraya girin. Örnek: Bearer eyJhbGciOi...",
+        "scheme": "Bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
+  "security": [
+    {
+      "Bearer": [ ]
+    }
+  ]
 }
