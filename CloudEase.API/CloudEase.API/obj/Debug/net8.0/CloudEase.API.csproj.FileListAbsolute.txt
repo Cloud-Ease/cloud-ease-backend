@@ -149,3 +149,4 @@ D:\cloud-ease-backend\CloudEase.API\CloudEase.API\bin\Debug\net8.0\zh-Hant\Micro
 D:\cloud-ease-backend\CloudEase.API\CloudEase.API\bin\Debug\net8.0\runtimes\browser\lib\net8.0\System.Text.Encodings.Web.dll
 D:\cloud-ease-backend\CloudEase.API\CloudEase.API\bin\Debug\net8.0\google-cloud-key.json
 D:\cloud-ease-backend\CloudEase.API\CloudEase.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt
+D:\cloud-ease-backend\CloudEase.API\CloudEase.API\bin\Debug\net8.0\cloud-ease-auth-firebase-adminsdk-fbsvc-a2736ea3ca.json
