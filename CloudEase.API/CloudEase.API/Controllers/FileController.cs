@@ -1,7 +1,7 @@
 ﻿using CloudEase.API.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
-using CloudEase.API.DTO;
+using CloudEase.API.DTOs;
 
 namespace CloudEase.API.Controllers
 {

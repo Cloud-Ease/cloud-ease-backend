@@ -149,4 +149,3 @@ D:\cloud-ease-backend\CloudEase.API\CloudEase.API\obj\Debug\net8.0\refint\CloudE
 D:\cloud-ease-backend\CloudEase.API\CloudEase.API\obj\Debug\net8.0\CloudEase.API.pdb
 D:\cloud-ease-backend\CloudEase.API\CloudEase.API\obj\Debug\net8.0\CloudEase.API.genruntimeconfig.cache
 D:\cloud-ease-backend\CloudEase.API\CloudEase.API\obj\Debug\net8.0\ref\CloudEase.API.dll
-D:\cloud-ease-backend\CloudEase.API\CloudEase.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

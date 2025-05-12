@@ -9,5 +9,6 @@ namespace CloudEase.API.Data
             : base(options) { }
 
         public DbSet<UploadedFile> Files { get; set; }
+        public DbSet<Profile> Profiles { get; set; }
     }
 }
