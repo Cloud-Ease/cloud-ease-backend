@@ -1,4 +1,4 @@
-﻿namespace CloudEase.API.DTO
+﻿namespace CloudEase.API.DTOs
 {
     public class FileUploadDto
     {

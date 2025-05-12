@@ -24,5 +24,31 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CloudEase.API.Controllers.ProfileController",
+    "Method": "Get",
+    "RelativePath": "api/profile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CloudEase.API.Controllers.ProfileController",
+    "Method": "Update",
+    "RelativePath": "api/profile",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "CloudEase.API.DTOs.ProfileUpdate",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   }
 ]
