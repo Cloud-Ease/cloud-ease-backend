@@ -1,7 +1,9 @@
 ﻿using CloudEase.API.Data;
 using CloudEase.API.DTOs;
 using CloudEase.API.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using System.Numerics;
 
 namespace CloudEase.API.Services
 {
@@ -19,18 +21,40 @@ namespace CloudEase.API.Services
           return await _context.Profiles.FirstOrDefaultAsync(p => p.UserId == userId);
         }
 
-        public async Task<Profile> UpdateAsync(string userId, ProfileUpdate dto)
+        public async Task<Profile> UpdateAsync(string userId, ProfileUpdateDto dto)
         {
             var profile = await GetByUserIdAsync(userId);
             if (profile == null) return null;
 
-            profile.FullName = dto.Fullname;
+            profile.FirstName = dto.FirstName;
+            profile.LastName = dto.LastName;
             profile.Phone = dto.Phone;
-            profile.ImageUrl = dto.ImageUrl;
+            profile.ImageUrl = dto.AvatarUrl;
             profile.LastLoginAt = DateTime.UtcNow;
 
             await _context.SaveChangesAsync();
             return profile;
         }
+
+        public async Task<Profile> CreateAsync(string userId, ProfileDto dto)
+        {
+            var profile = new Profile
+            {
+                UserId = userId,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                Phone = dto.Phone,
+                IsActive = true,
+                Email = dto.Email,
+                ImageUrl = dto.AvatarUrl,
+                CreatedAt = DateTime.UtcNow,
+                LastLoginAt = DateTime.UtcNow
+            };
+
+            _context.Profiles.Add(profile);
+            await _context.SaveChangesAsync();
+            return profile;
+        }
+
     }
 }
