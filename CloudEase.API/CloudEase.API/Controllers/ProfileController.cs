@@ -4,8 +4,9 @@ using CloudEase.API.DTOs;
 
 namespace CloudEase.API.Controllers
 {
-    [ApiController]
+    
     [Route("api/profile")]
+    [ApiController]
     public class ProfileController : ControllerBase
     {
         private readonly IProfileService _service;
@@ -13,6 +14,30 @@ namespace CloudEase.API.Controllers
         {
             _service = service;
         }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProfile([FromBody] ProfileDto dto)
+        {
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            if (userId == null) return Unauthorized();
+
+            var createdProfile = await _service.CreateAsync(userId, dto);
+
+            
+            var response = new ProfileDto
+            {
+                FirstName = createdProfile.FirstName,
+                LastName = createdProfile.LastName,
+                AvatarUrl = createdProfile.ImageUrl,
+                Phone = createdProfile.Phone,
+                IsActive = createdProfile.IsActive,
+                CreatedAt = createdProfile.CreatedAt,
+                LastLoginAt = createdProfile.LastLoginAt
+            };
+
+            return Ok(response); 
+        }
+
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -20,10 +45,13 @@ namespace CloudEase.API.Controllers
             if (userId == null) return Unauthorized();
 
             var profile = await _service.GetByUserIdAsync(userId);
+            if (profile == null) return NotFound();
+
             return Ok(profile);
         }
+
         [HttpPut]
-        public async Task<IActionResult> Update([FromBody]ProfileUpdate dto)
+        public async Task<IActionResult> Update([FromBody]ProfileUpdateDto dto)
         {
             var userId = HttpContext.Items["UserId"]?.ToString();
             if (userId == null) return Unauthorized();

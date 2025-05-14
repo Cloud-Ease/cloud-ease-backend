@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "CloudEase.API.Controllers.ProfileController",
+    "Method": "CreateProfile",
+    "RelativePath": "api/profile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "CloudEase.API.DTOs.ProfileDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CloudEase.API.Controllers.ProfileController",
     "Method": "Get",
     "RelativePath": "api/profile",
     "HttpMethod": "GET",
@@ -45,7 +61,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "CloudEase.API.DTOs.ProfileUpdate",
+        "Type": "CloudEase.API.DTOs.ProfileUpdateDto",
         "IsRequired": true
       }
     ],
