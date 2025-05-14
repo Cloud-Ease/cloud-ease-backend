@@ -16,7 +16,7 @@ namespace CloudEase.API.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateProfile([FromBody] ProfileDto dto)
+        public async Task<IActionResult> CreateProfile([FromBody] ProfileCreateDto dto)
         {
             var userId = HttpContext.Items["UserId"]?.ToString();
             if (userId == null) return Unauthorized();
@@ -29,6 +29,7 @@ namespace CloudEase.API.Controllers
                 FirstName = createdProfile.FirstName,
                 LastName = createdProfile.LastName,
                 AvatarUrl = createdProfile.ImageUrl,
+                Email = createdProfile.Email,
                 Phone = createdProfile.Phone,
                 IsActive = createdProfile.IsActive,
                 CreatedAt = createdProfile.CreatedAt,
@@ -47,7 +48,21 @@ namespace CloudEase.API.Controllers
             var profile = await _service.GetByUserIdAsync(userId);
             if (profile == null) return NotFound();
 
-            return Ok(profile);
+            var dto = new ProfileDto
+            {
+                FirstName = profile.FirstName,
+                LastName = profile.LastName,
+                AvatarUrl = profile.ImageUrl,
+                Phone = profile.Phone,
+                Email = profile.Email,
+                IsActive = profile.IsActive,
+                CreatedAt = profile.CreatedAt,
+                LastLoginAt = profile.LastLoginAt
+            };
+
+
+
+            return Ok(dto);
         }
 
         [HttpPut]

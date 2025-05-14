@@ -36,7 +36,7 @@ namespace CloudEase.API.Services
             return profile;
         }
 
-        public async Task<Profile> CreateAsync(string userId, ProfileDto dto)
+        public async Task<Profile> CreateAsync(string userId, ProfileCreateDto dto)
         {
             var profile = new Profile
             {

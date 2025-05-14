@@ -43,6 +43,7 @@ namespace CloudEase.API.Controllers
                 return BadRequest("Okunamadı.");
             }
             var files = await _fileService.ListAsync(userId);
+
             return Ok(files);
         }
 
