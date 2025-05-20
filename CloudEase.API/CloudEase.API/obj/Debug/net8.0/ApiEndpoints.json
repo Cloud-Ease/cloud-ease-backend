@@ -11,6 +11,38 @@
   },
   {
     "ContainingType": "CloudEase.API.Controllers.FileController",
+    "Method": "SingleDelete",
+    "RelativePath": "api/File/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CloudEase.API.Controllers.FileController",
+    "Method": "SingleDownload",
+    "RelativePath": "api/File/download/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "CloudEase.API.Controllers.FileController",
     "Method": "Upload",
     "RelativePath": "api/File/upload",
     "HttpMethod": "POST",

@@ -6,6 +6,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 using Google.Apis.Auth.OAuth2;
+using System.IO;
+using System.Security.AccessControl;
+using CloudEase.API.DTOs;
+using Microsoft.AspNetCore.Http.HttpResults;
 
 namespace CloudEase.API.Services
 {
@@ -55,5 +59,41 @@ namespace CloudEase.API.Services
 
             return url;
         }
+
+        public async Task<(byte[] data, string fileName, string contentType)?> DownloadAsync(int fileId, string userId)
+        {
+            var file = await _db.Files.FirstOrDefaultAsync(f => f.Id == fileId && f.UserId == userId);
+            if (file == null)
+            {
+                return null;
+            }
+
+            using var memoryStream = new MemoryStream();
+            await _storage.DownloadObjectAsync(_bucket, GetObjectNameFromUrl(file.Url), memoryStream);
+            return (memoryStream.ToArray(), file.FileName, file.ContentType);
+        }
+
+        private string GetObjectNameFromUrl(string url)
+        {
+            return new Uri(url).Segments.Last(); 
+        }
+
+        public async Task DeleteFile(int fileId, string userId)
+        {
+            var file = await _db.Files.FirstOrDefaultAsync(f => f.Id == fileId && f.UserId == userId);
+            if (file == null)
+            {
+                throw new Exception("Dosya bulunamadı");
+            }
+
+            var objectName = GetObjectNameFromUrl(file.Url);
+
+            await _storage.DeleteObjectAsync(_bucket, objectName);
+
+            _db.Files.Remove(file);
+            await _db.SaveChangesAsync();
+
+        }
+
     }
 }
