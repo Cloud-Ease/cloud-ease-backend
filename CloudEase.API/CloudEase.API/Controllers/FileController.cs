@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Http;
 using CloudEase.API.DTOs;
+using Microsoft.EntityFrameworkCore;
 
 namespace CloudEase.API.Controllers
 {
@@ -45,6 +46,40 @@ namespace CloudEase.API.Controllers
             var files = await _fileService.ListAsync(userId);
 
             return Ok(files);
+        }
+
+
+        [HttpGet("download/{id}")]
+        public async Task<IActionResult> SingleDownload(int id)
+        {
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            if (userId == null)
+            {
+                return BadRequest("Kullanıcı kimliği alınamadı.");
+            }
+
+            var result = await _fileService.DownloadAsync(id, userId);
+            if (result == null)
+            {
+                return NotFound("Dosya bulunamadı.");
+            }
+
+            var (data, fileName, contentType) = result.Value;
+            return File(data, contentType ?? "application/octet-stream", fileName);
+        }
+
+        [HttpDelete("{id}")]
+        public async Task<IActionResult> SingleDelete(int id)
+        {
+            var userId = HttpContext.Items["UserId"]?.ToString();
+            if (userId == null)
+            {
+                return BadRequest("Kullanıcı kimliği alınamadı.");
+            }
+
+            await _fileService.DeleteFile(id, userId);
+
+            return Ok();
         }
 
     }
